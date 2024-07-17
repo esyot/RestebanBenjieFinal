@@ -27,6 +27,11 @@ Route::get('/student/delete/{id}', [StudentController::class, 'delete'])->name('
 
 //charges
 Route::post('/charges/add/{id}', [AccountController::class, 'addCharges'])->name('charges.add');
+Route::get('/charge/delete/{id}', [AccountController::class, 'deleteCharge'])->name('charge.delete');
 
 //accounts
 Route::post('/account/store', [AccountController::class, 'store'])->name('account.store');
+
+
+
+Route::put('/charge/update/{id}', [StudentController::class, 'updateCharge'])->name('charge.update');
