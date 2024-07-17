@@ -45,8 +45,33 @@ class AccountController extends Controller
     public function create(){
 
         $students = Student::orderby('first_name')->get();
-     
+
         return view('modals.account-create', compact('students'));
 
+    }
+
+    public function store(Request $request){
+
+        $request->validate([
+            'student_id' => 'required|numeric',
+            'section' => 'required|string',
+            'remarks' => 'required|string'
+        ]);
+    
+  
+        Account::create([
+            'student_id' => $request->student_id,
+            'section' => $request->section,
+            'remarks' => $request->remarks,
+        ]);
+    
+        $accounts = Account::orderby('id')->get();
+        $charges = Charge::orderBy('id')->get();
+         
+        $success = view('messages.account-create-success')->render();
+        $html = view('inclusions.accounts-list', compact('charges' ,'accounts'))->render();
+     
+        return $success . $html;
+                
     }
 }

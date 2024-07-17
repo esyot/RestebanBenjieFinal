@@ -8,7 +8,7 @@
 
             <div class="flex justify-end">
 
-                <button onclick="document.getElementById('student-create-success').classList.add('hidden')"
+                <button onclick="closeModal()"
                 class="px-4 py-2 bg-red-500 hover:bg-red-500 text-white rounded">OK</button>
             </div>
            
@@ -17,5 +17,26 @@
 </div>
 
 <script>
-    document.getElementById('student-create').classList.add('hidden');
+     document.getElementById('student-create').classList.toggle('hidden');
+
+    function closeModal() {
+
+        document.getElementById('student-create-success').classList.toggle('hidden');
+
+        document.getElementById('student-create').classList.add('hidden');
+        
+        // Clear input fields
+        document.querySelectorAll('#student-create input').forEach(input => {
+            input.value = '';
+        });
+
+        // Clear error messages
+        document.querySelectorAll('#student-create .text-red-500').forEach(error => {
+            error.textContent = '';
+        });
+
+
+        document.getElementById('message').classList.add('hidden');
+    }
+</script>
 </script>

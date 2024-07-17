@@ -4,7 +4,7 @@
         <div class="flex justify-between items-center">
             <h2 class="text-2xl font-semibold">Add Charges to {{$account->student->first_name}}</a></h2>
  
-            <button onclick="document.getElementById('student-create').classList.add('hidden')" class="text-gray-500 hover-text-gray-700">&times;</button>
+            <button onclick="document.getElementById('charges-add-{{$account->id}}').classList.add('hidden')" class="text-gray-500 hover-text-gray-700">&times;</button>
         </div>
         <form hx-post="{{ route('charges.add', $account->id) }}" hx-trigger="submit" hx-target="#accounts-list" hx-swap="innerHTML">
             

@@ -26,11 +26,13 @@ Route::get('/dashboard', [SiteController::class, 'index'])->name('dashboard');
 
 //students
 Route::get('/students/view', [StudentController::class, 'index'])->name('students.view');
+
 Route::get('/student/view/{id}',[StudentController::class, 'student'])->name('student.view');
 
 //accounts
 Route::get('/accounts/view', [AccountController::class, 'index'])->name('accounts.view');
 Route::get('/account/create', [AccountController::class, 'create'])->name('account.create');
+
 
 //charges
 Route::get('charges/view', [ChargesController::class, 'index']);

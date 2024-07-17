@@ -2,15 +2,15 @@
     <div class="bg-white shadow-lg rounded-lg max-w-md w-full p-4">
 
         <div class="flex justify-between items-center">
-            <h2 class="text-2xl font-semibold">Create Student</a></h2>
+            <h2 class="text-2xl font-semibold">Create Account</a></h2>
  
             <button onclick="" class="text-gray-500 hover-text-gray-700">&times;</button>
         </div>
-        <form hx-post="api/accounts/create" hx-trigger="submit" hx-target="#accounts-list" hx-swap="innerHTML">
+        <form hx-post="{{ route('account.store') }}" hx-trigger="submit" hx-target="#accounts-list" hx-swap="innerHTML">
             
             <div class="mt-4">
-                <label for="name">Student:</label>
-               <select class="block w-full py-2 px-2 border border-gray-200 rounded">
+                <label for="student_id">Student:</label>
+               <select name="student_id" class="block w-full py-2 px-2 border border-gray-200 rounded">
                 @foreach($students as $student)
                 <option value="{{$student->id}}">{{$student->first_name}} {{$student->last_name}}</option>
 

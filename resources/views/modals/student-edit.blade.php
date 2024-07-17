@@ -7,7 +7,7 @@
             <button onclick="document.getElementById('student-edit-{{$student->id}}').classList.add('hidden')" class="text-gray-500 hover-text-gray-700">&times;</button>
         </div>
         
-        <form hx-put="api/student/update/{{$student->id}}" hx-trigger="submit" hx-swap="innerHTML" hx-target="#students-list">
+        <form hx-put="{{ route('student.update',['id'=>$student->id]) }}" hx-trigger="submit" hx-swap="innerHTML" hx-target="#students-list">
                          
             <div class="mt-4">
                 <label for="first_name">First Name:</label>

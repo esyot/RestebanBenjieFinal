@@ -7,7 +7,7 @@
                     <div>Address: {{ $student->address }}</div>
                     
                     <div class="mt-auto flex justify-end">
-                    <button hx-get='/student/view/{{$student->id}}' hx-target='#student'
+                    <button hx-get="{{ route('student.view', ['id'=>$student->id]) }}" hx-target='#student'
                         class="py-2 px-2 bg-blue-500 hover:bg-blue-800 rounded text-blue-100">View & Edit</button>
 
                     <button onclick="document.getElementById('student-delete-{{$student->id}}').classList.remove('hidden')" 
@@ -23,5 +23,7 @@
 
             </div>
         @endforeach
+
+        
            
     </div>

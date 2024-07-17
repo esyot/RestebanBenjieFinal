@@ -20,9 +20,13 @@ use App\Http\Controllers\AccountController;
 // });
 
 Route::post('/student/create', [StudentController::class, 'create'])->name('student.create');
+
 Route::put('/student/update/{id}', [StudentController::class, 'update'])->name('student.update');
+
 Route::get('/student/delete/{id}', [StudentController::class, 'delete'])->name('student.delete');
 
 //charges
 Route::post('/charges/add/{id}', [AccountController::class, 'addCharges'])->name('charges.add');
 
+//accounts
+Route::post('/account/store', [AccountController::class, 'store'])->name('account.store');

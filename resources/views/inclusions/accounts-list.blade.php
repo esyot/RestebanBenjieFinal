@@ -24,4 +24,5 @@
     
 @endforeach
 <div id="account-charges-content"></div>
+<div id="account"></div>
 
