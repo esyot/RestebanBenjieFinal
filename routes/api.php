@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\AccountController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,6 +19,10 @@ use App\Http\Controllers\StudentController;
 //     return $request->user();
 // });
 
-Route::post('/student/create', [StudentController::class, 'create'])->name('api.student.create');
-Route::put('/student/update/{id}', [StudentController::class, 'update'])->name('api.student.update');
+Route::post('/student/create', [StudentController::class, 'create'])->name('student.create');
+Route::put('/student/update/{id}', [StudentController::class, 'update'])->name('student.update');
+Route::get('/student/delete/{id}', [StudentController::class, 'delete'])->name('student.delete');
+
+//charges
+Route::post('/charges/add/{id}', [AccountController::class, 'addCharges'])->name('charges.add');
 

@@ -11,29 +11,34 @@
             <div class="mt-4">
                 <label for="name">First Name:</label>
                <input type="text" name="first_name" class="block w-full py-2 px-2 border border-gray-200 rounded">
+               <div id="first_name-error"></div>
             </div>
 
             <div class="mt-4">
                 <label for="name">Last Name:</label>
                <input type="text" name="last_name" class="block w-full py-2 px-2 border border-gray-200 rounded">
+               <div id="last_name-error"></div>
             </div>
 
             <div class="mt-4">
                 <label for="name">Middle Name:</label>
                <input type="text" name="middle_name" class="block w-full py-2 px-2 border border-gray-200 rounded">
-            </div>
+               <div id="middle_name-error"></div>
+            </div> 
 
             <div class="mt-4">
                 <label for="name">Date of Birth:</label>
                <input type="date" name="dob" class="block w-full py-2 px-2 border border-gray-200 rounded">
+               <div id="dob-error"></div>
             </div>
 
             <div class="mt-4">
                 <label for="name">Address:</label>
                <input type="text" name="address" class="block w-full py-2 px-2 border border-gray-200 rounded">
+               <div id="address-error"></div>
             </div>
 
-            
+            <div id="message"></div>
 
             
             <div class="flex justify-end mt-4">
