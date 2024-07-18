@@ -23,8 +23,6 @@ use App\Http\Controllers\ModalController;
 
 Route::get('/', [SiteController::class, 'index']);
 
-Route::get('/charge/add/close/modal/{id}', [ModalController::class, 'charge_add_close_modal']);
-
 Route::get('/dashboard', [SiteController::class, 'index'])->name('dashboard');
 
 //students
@@ -38,6 +36,11 @@ Route::get('/account/create', [AccountController::class, 'create'])->name('accou
 
 
 //charges
+Route::get('charge/{id}', [ChargesController::class, 'chargeEditModal']);
+
+
+
+
 Route::get('/charges/view', [ChargesController::class, 'index']);
 Route::get('/charges/view/{id}', [ChargesController::class, 'charges'])->name('charges.view');
 
