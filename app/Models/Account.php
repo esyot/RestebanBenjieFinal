@@ -20,7 +20,12 @@ class Account extends Model
     }
 
     public function charges()
-{
-    return $this->hasMany(Charge::class);
-}
+    {
+        return $this->hasMany(Charge::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

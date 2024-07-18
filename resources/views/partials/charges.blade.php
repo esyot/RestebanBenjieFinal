@@ -11,11 +11,13 @@
             </h2>
 
 
-            <button hx-get="/charge/modal/{{$account->id}}"
+        <button hx-get="/charge/modal/{{$account->id}}"
             hx-trigger="click"
             hx-target="#charges-list-{{$account->id}}"
             hx-swap="outerHTML"
-            class="py-2 px-2 bg-green-500 hover:bg-green-800 text-green-100 rounded">Add Charges</button>
+            class="py-2 px-4 bg-green-500 hover:bg-green-800 text-green-100 rounded">
+            <i class="fas fa-add"></i>
+        </button>
 
         </div>
 
@@ -41,7 +43,10 @@
         </div>
 
         <div class="flex justify-end">
-            <button class="mt-4 px-4 text-white py-2 bg-blue-500 hover:bg-blue-800 rounded">Pay</button>
+            <button hx-get="/account/pay/{{$account->id}}/{{$account->remarks}}" hx-trigger="click"
+            hx-target="#charges-list-{{$account->id}}" hx-swap="innerHTML"
+            class="mt-4 px-4 text-white py-2 bg-blue-500 hover:bg-blue-800 rounded">Pay</button>
+
             <button onclick="document.getElementById('charges-list-{{$account->id}}').classList.add('hidden')" class="mt-4 ml-1 py-2 px-4 bg-red-500 hover:bg-red-700 text-white rounded">Close</button>
         </div>
     </div>

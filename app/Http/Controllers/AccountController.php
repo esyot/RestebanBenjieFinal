@@ -6,19 +6,46 @@ use Illuminate\Http\Request;
 use App\Models\Account;
 use App\Models\Charge;
 use App\Models\Student;
+use App\Models\Payment;
 
 class AccountController extends Controller
 {
-    public function index(){
-
-        $accounts = Account::orderby('id')->get();
-        $students = Student::orderby('id')->get();
+    public function index(Request $request) {
+        try {
+            if ($request->has('filter')) {
+                if (!empty($request->filter)) {
+                  
+                    $accounts = Account::with('student')->whereHas('student', function ($query) use ($request) {
+                        $query->where('first_name', 'like', "%{$request->filter}%")
+                              ->orWhere('last_name', 'like', "%{$request->filter}%")
+                              ->orWhere('middle_name', 'like', "%{$request->filter}%");
+                    })->orWhere('remarks', 'like', "%{$request->filter}%")->orderBy('id')->get();
+    
+                    return view('inclusions.accounts-list', compact('accounts'));
+                } else {
+                   
+                    $accounts = Account::with('student')->orderBy('id')->get();
+                    return view('inclusions.accounts-list', compact('accounts'));
+                }
+            } else {
+               
+                $accounts = Account::with('student')->orderBy('id')->get();
+            }
+        } catch (\Exception $e) {
+           
+            \Log::error('Error fetching accounts: ' . $e->getMessage());
+    
+           
+            $accounts = collect();
+        }
+    
+        
+        $students = Student::orderBy('id')->get();
         $charges = Charge::orderBy('id')->get();
-
-     
-        return view('pages.accounts', compact('charges' ,'accounts', 'students'));
+    
+        return view('pages.accounts', compact('charges', 'accounts', 'students'));
     }
-
+    
     public function getCharges($id)
     {
        
@@ -105,6 +132,45 @@ class AccountController extends Controller
        
         return $success . $html;
     }
+
+    public function delete($id){
+
+        $account = Account::findOrFail($id);
+
+        $account->delete();
+
+        if($account){
+
+            return view('messages.account-delete-success', compact('account'));
+        }
+
+
+    }
+
+    public function pay($id, $remarks)
+    {
+        $account = Account::with('charges')->where([
+            ['id', '=', $id],
+            ['remarks', '=', $remarks]
+        ])->firstOrFail();
+    
+   
+        $charges = $account->charges;
+        $payments = Payment::where('account_id', $id)->get();
+    
+ 
+        $totalAmount = $charges->sum('amount');
+
+        $totalPaid = $payments->sum('amount_paid');
+    
+   
+        $remainingBalance = $totalAmount - $totalPaid;
+    
+        return view('modals.account-pay', compact('account', 'charges', 'payments', 'totalAmount', 'remainingBalance'));
+    }
+    
+
+
 
 
 

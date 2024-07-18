@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ChargesController;
+use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -34,9 +35,11 @@ Route::put('/charge/{id}/update/', [ChargesController::class, 'chargeUpdate'])->
 
 //accounts
 Route::post('/account/store', [AccountController::class, 'store'])->name('account.store');
-
+Route::delete('/account/delete/{id}', [AccountController::class, 'delete'])->name('account.delete');
 
 
 Route::put('/charge/update/{id}', [ChargesController::class, 'chargeUpdate'])->name('charge.update');
 
 
+//payments
+Route::post('/payment/add/{id}', [PaymentController::class, 'create'])->name('payment.add');

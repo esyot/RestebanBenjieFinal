@@ -8,7 +8,7 @@
 
             <div class="flex justify-end mb-2">
 
-                <button type="button" class="px-4 py-2 bg-red-500 hover:bg-red-800 text-white rounded"
+                <button type="button" class="px-4 py-2 bg-blue-500 hover:bg-blue-800 text-blue-100 rounded"
                 onclick="document.getElementById('charge-delete-success-{{$charge->id}}').classList.add('hidden')" >OK</button>
             </div>
            

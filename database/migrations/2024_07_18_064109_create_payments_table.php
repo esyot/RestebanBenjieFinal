@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('account_id')->constrained()->onDelete('cascade');
-            $table->datetime('datetime');
-            $table->decimal('amount', 10,2);        
+            $table->date('date');
+            $table->decimal('amount_paid', 10, 2);
             $table->timestamps();
+
         });
     }
 

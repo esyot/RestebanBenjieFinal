@@ -46,3 +46,4 @@ Route::get('/accounts/{id}/charges', [AccountController::class, 'getCharges'])->
 Route::get('/charge/modal/{id}', [ChargesController::class, 'chargeModal'])->name('charge.modal');
 
 //payment
+Route::get('/account/pay/{id}/{remarks}', [AccountController::class, 'pay'])->name('account.pay');

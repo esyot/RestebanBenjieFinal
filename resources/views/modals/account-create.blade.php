@@ -17,7 +17,8 @@
                 <label for="section">Section:</label>
                 <select name="section" class="block w-full py-2 px-2 border border-gray-200 rounded">
                     <option value="BSIT">BSIT</option>
-                    <option value="CABM">CABM</option>
+                    <option value="CABM">CABM-B</option>
+                    <option value="CABM">CABM-H</option>
                     <option value="BSCRIM">BSCRIM</option>
                     <option value="BSN">BSN</option>
                     <option value="BSED">BSED</option>

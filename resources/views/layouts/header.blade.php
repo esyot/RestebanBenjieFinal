@@ -24,7 +24,7 @@
      
             <li class="mt-2"><a href="{{ route('students.view')}}" class="block px-2 py-1 hover:bg-gray-400 rounded">Students</a></li>
             <li class="mt-2"><a href="{{ route('accounts.view')}}" class="block px-2 py-1 hover:bg-gray-400 rounded">Accounts</a></li>
-            <li class="mt-2"><a href="" class="block px-2 py-1 hover:bg-gray-400 rounded">Transactions</a></li>
+
         </ul>
     </li>
 </ul>
