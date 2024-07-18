@@ -2,6 +2,9 @@
 
 @section('content')
 
+@include('modals.account-create', ['students'=>$students])
+
+
 
     <div class="flex justify-between mb-4 shadow-md p-2 bg-gray-200 items-center">
         <div class="flex items-center">
@@ -10,8 +13,8 @@
         <h1 class="text-2xl font-semibold">Accounts</h1>
         </div>
     
-        <button hx-get="{{ route('account.create') }}" hx-trigger="click" hx-swap="innerHTML" hx-target="#account"
-        class="px-2 py-2 bg-blue-500 hover:bg-blue-800 text-blue-100 rounded">Create New Account</button>
+        <button onclick="document.getElementById('account-create').classList.remove('hidden');" class="px-2 py-2 bg-blue-500 hover:bg-blue-800 text-blue-100 rounded">Create New Account</button>
+
     </div>
 
 

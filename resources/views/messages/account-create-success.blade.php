@@ -17,11 +17,11 @@
 </div>
 
 <script>
-     document.getElementById('account-create').classList.toggle('hidden');
+     document.getElementById('account-create').classList.add('hidden');
 
     function closeModal() {
 
-        document.getElementById('account-create-success').classList.toggle('hidden');
+        document.getElementById('account-create-success').classList.add('hidden');
     }
 </script>
 </script>

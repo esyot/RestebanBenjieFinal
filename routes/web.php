@@ -6,6 +6,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ChargesController;
+use App\Http\Controllers\ModalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,8 @@ use App\Http\Controllers\ChargesController;
 
 Route::get('/', [SiteController::class, 'index']);
 
+Route::get('/charge/add/close/modal/{id}', [ModalController::class, 'charge_add_close_modal']);
+
 Route::get('/dashboard', [SiteController::class, 'index'])->name('dashboard');
 
 //students
@@ -35,8 +38,9 @@ Route::get('/account/create', [AccountController::class, 'create'])->name('accou
 
 
 //charges
-Route::get('charges/view', [ChargesController::class, 'index']);
-Route::get('charges/view/{id}', [ChargesController::class, 'charges']);
+Route::get('/charges/view', [ChargesController::class, 'index']);
+Route::get('/charges/view/{id}', [ChargesController::class, 'charges'])->name('charges.view');
 
 Route::get('/accounts/{id}/charges', [AccountController::class, 'getCharges'])->name('accounts.charges');
 
+Route::get('/charge/modal/{id}', [ChargesController::class, 'chargeModal'])->name('charge.modal');

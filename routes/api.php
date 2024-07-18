@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ChargesController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,8 +27,8 @@ Route::put('/student/update/{id}', [StudentController::class, 'update'])->name('
 Route::get('/student/delete/{id}', [StudentController::class, 'delete'])->name('student.delete');
 
 //charges
-Route::post('/charges/add/{id}', [AccountController::class, 'addCharges'])->name('charges.add');
-Route::get('/charge/delete/{id}', [AccountController::class, 'deleteCharge'])->name('charge.delete');
+Route::post('/charge/{id}/create/', [ChargesController::class, 'addCharges'])->name('charge.create');
+Route::get('/charge/delete/{id}/{accountId}', [AccountController::class, 'deleteCharge'])->name('charge.delete');
 
 //accounts
 Route::post('/account/store', [AccountController::class, 'store'])->name('account.store');

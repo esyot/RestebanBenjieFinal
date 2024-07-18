@@ -9,7 +9,7 @@
             <div class="flex justify-end mb-2">
 
                 <button type="button" class="px-4 py-2 bg-red-500 hover:bg-red-800 text-white rounded"
-                onclick="document.getElementById('account-create-error').classList.toggle('hidden')" >OK</button>
+                onclick="document.getElementById('account-create-error').classList.add('hidden')" >OK</button>
             </div>
            
         
