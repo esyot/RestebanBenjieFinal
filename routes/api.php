@@ -36,6 +36,7 @@ Route::put('/charge/{id}/update/', [ChargesController::class, 'chargeUpdate'])->
 //accounts
 Route::post('/account/store', [AccountController::class, 'store'])->name('account.store');
 Route::delete('/account/delete/{id}', [AccountController::class, 'delete'])->name('account.delete');
+Route::put('/account/update/{id}', [AccountController::class, 'update'])->name('account.update');
 
 
 Route::put('/charge/update/{id}', [ChargesController::class, 'chargeUpdate'])->name('charge.update');

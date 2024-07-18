@@ -13,7 +13,7 @@
             <h1 class="text-2xl font-semibold">Accounts</h1>
           
         </div>
-        <input hx-get="/accounts/view" hx-trigger="input" hx-target="#accounts-list" hx-swap="innerHTML" name="filter" placeholder="Search accounts" type="text" class="px-4 py-2 rounded border border-gray-300">          
+        <input hx-get="/accounts" hx-trigger="input" hx-target="#accounts-list" hx-swap="innerHTML" name="filter" placeholder="Search accounts" type="text" class="px-4 py-2 rounded border border-gray-300">          
            
     
     </div>
@@ -24,10 +24,9 @@
     
 
 
-<div id="accounts-list" class="grid grid-cols-3 gap-3 min-h-auto w-full p-6">
+    <div id="accounts-list" class="grid grid-cols-3 gap-3 min-h-auto w-full p-6">
     
        @include('inclusions.accounts-list' )
-
 
 
 <div id="account"></div>

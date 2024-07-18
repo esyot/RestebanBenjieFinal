@@ -9,6 +9,32 @@
                 <div class="flex items-center">
                     <h2 class="text-2xl font-semibold text-center">Payment Form</h2>
                 </div>
+                <table class="w-full mt-4">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 border bg-gray-200">Charges</th>
+                            <th class="py-2 px-4 border bg-gray-200">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($charges as $charge)
+                            <tr id="charge-{{$charge->id}}" class="hover:bg-gray-100">
+                                <td class="py-2 px-4 border">{{ $charge->title }}</td>
+                                <td class="py-2 px-4 border">₱{{ $charge->amount }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot>
+                        <tr class="py-2 px-4 border">
+                            <td class="py-2 px-4 border">Total Amount:</td>
+                            <td class="py-2 px-4 border">
+                                <p class="text-red-500 font-semibold">₱{{ $totalAmount }}</p>
+                            </td>
+                        </tr>
+                
+                    </tfoot>
+                </table>
+
 
                 <div class="mt-4">
                  
@@ -54,37 +80,7 @@
                     <h2 class="text-2xl font-semibold text-center">Billing Statement</h2>
                 </div>
 
-            <table class="w-full mt-4">
-                    <thead>
-                        <tr>
-                            <th class="py-2 px-4 border bg-gray-200">Charges</th>
-                            <th class="py-2 px-4 border bg-gray-200">Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($charges as $charge)
-                            <tr id="charge-{{$charge->id}}" class="hover:bg-gray-100">
-                                <td class="py-2 px-4 border">{{ $charge->title }}</td>
-                                <td class="py-2 px-4 border">₱{{ $charge->amount }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                    <tfoot>
-                        <tr class="py-2 px-4 border">
-                            <td class="py-2 px-4 border">Total Amount:</td>
-                            <td class="py-2 px-4 border">
-                                <p class="text-red-500 font-semibold">₱{{ $totalAmount }}</p>
-                            </td>
-                        </tr>
-                        <tr class="py-2 px-4 border">
-                            <td class="py-2 px-4 border">Remaining Balance:</td>
-                            <td class="py-2 px-4 border">
-                                <p class="text-green-500 font-semibold">₱{{ $remainingBalance }}</p>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-
+           
 
 
                 <table class="w-full mt-4">

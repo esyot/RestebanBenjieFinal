@@ -17,7 +17,7 @@
                 hx-delete="{{ route('account.delete', ['id'=>$account->id]) }}" 
                 hx-trigger="click" 
                 hx-target="#account-{{$account->id}}"
-                hx-swap="innerHTML"
+                hx-swap="outerHTML"
                 class="py-2 px-4 text-red-100 bg-red-500 hover:bg-red-800 rounded shadow-md">Yes, proceed</button>
                 
                 <button onclick="document.getElementById('account-delete-{{$account->id}}').classList.add('hidden')"

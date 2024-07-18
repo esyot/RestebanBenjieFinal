@@ -31,8 +31,11 @@ Route::get('/students/view', [StudentController::class, 'index'])->name('student
 Route::get('/student/view/{id}',[StudentController::class, 'student'])->name('student.view');
 
 //accounts
-Route::get('/accounts/view', [AccountController::class, 'index'])->name('accounts.view');
+Route::get('/accounts', [AccountController::class, 'index'])->name('accounts');
+Route::get('/accounts/view', [AccountController::class, 'view'])->name('accounts.view');
+Route::get('/account/{id}', [AccountController::class, 'single'])->name('account.view');
 Route::get('/account/create', [AccountController::class, 'create'])->name('account.create');
+Route::get('/account/edit/{id}', [AccountController::class, 'edit']);
 
 
 //charges
@@ -47,3 +50,7 @@ Route::get('/charge/modal/{id}', [ChargesController::class, 'chargeModal'])->nam
 
 //payment
 Route::get('/account/pay/{id}/{remarks}', [AccountController::class, 'pay'])->name('account.pay');
+
+
+//modals
+Route::get('/account/edit/modal/{id}', [ModalController::class, 'accountEditModal']);

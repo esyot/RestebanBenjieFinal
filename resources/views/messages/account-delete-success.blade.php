@@ -3,7 +3,7 @@
 
         
             <div class="mt-4 text-center">
-                <h2 class="text-xl m-2 text-green-500">{{$account->student->first_name}} has been deleted successfully!</h2>
+                <h2 class="text-lg m-2">{{$account->student->first_name}} has been deleted successfully!</h2>
             </div>
 
             <div class="flex justify-end mb-2">

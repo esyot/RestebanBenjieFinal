@@ -39,6 +39,7 @@
             <div id="message"></div>
             <div class="flex justify-end mt-4">
                 <button type="submit" class="py-2 px-2 bg-blue-500 hover:bg-blue-800 text-blue-100 rounded">Save</button>
+                    
                 <button type="button" onclick="document.getElementById('account-create').classList.add('hidden')" class="ml-1 py-2 px-2 bg-gray-500 hover:bg-gray-800 text-gray-100 rounded">Close</button>
             </div>
         </form>

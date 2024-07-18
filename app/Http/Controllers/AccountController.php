@@ -45,6 +45,16 @@ class AccountController extends Controller
     
         return view('pages.accounts', compact('charges', 'accounts', 'students'));
     }
+
+    public function view() {   
+        
+        $accounts = Account::orderBy('id')->get();
+        $students = Student::orderBy('id')->get();
+        $charges = Charge::orderBy('id')->get();
+    
+        return view('inclusions.accounts-list', compact('charges', 'accounts', 'students'));
+    }
+    
     
     public function getCharges($id)
     {
@@ -88,11 +98,11 @@ class AccountController extends Controller
         $charges = Charge::orderBy('id')->get();
          
        
-        $html = view('inclusions.accounts-list', compact('charges' ,'accounts'))->render();
-
         $error = view('errors.account-create-error')->render();
-        
-        return $html . $error;
+
+        $html = view('inclusions.accounts-list', compact('charges' ,'accounts'))->render();
+     
+        return $error . $html;
     }
     
   
@@ -170,7 +180,53 @@ class AccountController extends Controller
     }
     
 
+  public function update(Request $request, $id){
 
+       $account = Account::findOrFail($id);
+
+       $account->update([
+        'section'=>$request->section,
+        'remarks'=>$request->remarks
+       ]);
+
+       if($account){
+
+      
+
+        $success = view('messages.account-update-success', compact('account'))->render();
+        $html = view('partials.account-single', compact('account'))->render();
+
+       //$html = view('messages.account-update-success', compact('account'))->render();
+
+       return $html . $success;
+
+       }
+
+
+  }
+  public function edit($id){
+
+    $account = Account::findOrFail($id);
+
+    return view('modals.account-edit', compact('account'));
+
+  }
+
+  public function single( $id){
+
+    $account = Account::findOrFail($id);
+
+    if($account){
+
+    $html = view('partials.account-single', compact('account'))->render();
+
+
+    return $html;
+
+    }
+
+
+}
 
 
 
