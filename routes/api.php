@@ -29,6 +29,7 @@ Route::get('/student/delete/{id}', [StudentController::class, 'delete'])->name('
 //charges
 Route::post('/charge/{id}/create/', [ChargesController::class, 'addCharges'])->name('charge.create');
 Route::get('/charge/delete/{id}/{accountId}', [AccountController::class, 'deleteCharge'])->name('charge.delete');
+
 Route::put('/charge/{id}/update/', [ChargesController::class, 'chargeUpdate'])->name('charge.update');
 
 //accounts
@@ -37,3 +38,5 @@ Route::post('/account/store', [AccountController::class, 'store'])->name('accoun
 
 
 Route::put('/charge/update/{id}', [ChargesController::class, 'chargeUpdate'])->name('charge.update');
+
+

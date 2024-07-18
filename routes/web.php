@@ -38,12 +38,11 @@ Route::get('/account/create', [AccountController::class, 'create'])->name('accou
 //charges
 Route::get('charge/{id}', [ChargesController::class, 'chargeEditModal']);
 
-
-
-
 Route::get('/charges/view', [ChargesController::class, 'index']);
 Route::get('/charges/view/{id}', [ChargesController::class, 'charges'])->name('charges.view');
 
 Route::get('/accounts/{id}/charges', [AccountController::class, 'getCharges'])->name('accounts.charges');
 
 Route::get('/charge/modal/{id}', [ChargesController::class, 'chargeModal'])->name('charge.modal');
+
+//payment

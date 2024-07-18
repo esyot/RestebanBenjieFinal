@@ -12,33 +12,46 @@ class ChargesController extends Controller
 {
     public function addCharges(Request $request, $id)
     {
-        
-          
+
+            try{
+
             $request->validate([
                 'title' => 'required|string',
                 'amount' => 'required|numeric',
             ]);
 
-            
+
             $charge = Charge::create([
                 'account_id' => $id,
                 'title' => $request->title,
                 'amount' => $request->amount,
-            ]);                
+            ]);
 
             if($charge){
 
             $account = Account::findOrFail($id);
 
             $success = view('messages.charge-add-success', compact('account'))->render();
-            
+
             return $success;
 
 
-            }
-            
 
-        
+            }
+        }catch (\Exception $e) {
+
+            $account = Account::findOrFail($id);
+
+            $html = view('modals.charge-add', compact('account'))->render();
+
+            $error = view('errors.charge-add-error')->render();
+
+            return $html . $error;
+
+        }
+
+
+
     }
 
     public function chargeModal($id){
@@ -74,7 +87,11 @@ class ChargesController extends Controller
 
         if($charge){
 
-            return "";
+            $account = Account::findOrFail($charge->account_id);
+
+            $success = view('messages.charge-update-success', compact('account'))->render();
+
+            return $success;
         }
     }
 }
